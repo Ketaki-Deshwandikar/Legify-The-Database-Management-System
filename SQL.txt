@@ -1,0 +1,80 @@
+CREATE TABLE login(
+    -> username VARCHAR(20) NOT NULL,
+    -> password VARCHAR(20) NOT NULL
+    ->);
+
+create table Client(
+    -> ClientID varchar(20),
+    -> name varchar(50),
+    -> ClientRole varchar(20),
+    -> address varchar(70),
+    -> phone int(10),
+    -> email varchar(40),
+    -> PRIMARY KEY (ClientID)
+    -> );
+
+create table Cases(
+    -> caseno varchar(20),
+    -> casetype varchar(30),
+    -> ClientID varchar(20),
+    -> courtname varchar(40),
+    -> datefiled date,
+    -> dateclosed date,
+    -> PRIMARY KEY(caseno,casetype,ClientID),
+    -> FOREIGN KEY(ClientID) REFERENCES Client(ClientID)
+    -> );
+
+create table CaseStatus(
+    -> caseno varchar(20),
+    -> casetype varchar(30),
+    -> ClientID varchar(20),
+    -> prevdate date,
+    -> nextdate date,
+    -> currStage varchar(40),
+    -> nextStage varchar(40),
+    -> PRIMARY KEY(caseno,casetype,ClientID),
+    -> FOREIGN KEY(ClientID) REFERENCES Client(ClientID),    
+    -> FOREIGN KEY(caseno,casetype) REFERENCES Cases(caseno,casetype)
+    -> );
+
+create table Notes(
+    -> noteID int NOT NULL AUTO_INCREMENT,
+    -> remark varchar(255),
+    -> PRIMARY KEY(noteID)
+    -> );
+
+ create table Bill(
+    -> ClientID varchar(20),
+    -> caseno varchar(20),
+    -> casetype varchar(30),
+    -> totalamt double,
+    -> amtpaid double,
+    -> amtdue double,
+    -> PRIMARY KEY(caseno,casetype,ClientID),
+    -> FOREIGN KEY(ClientID) REFERENCES Client(ClientID),
+    -> FOREIGN KEY(caseno,casetype) REFERENCES Cases(caseno,casetype)
+    -> );
+
+create table Payment(
+    -> ClientID varchar(20),
+    -> caseno varchar(20),
+    -> casetype varchar(30),
+    -> transID varchar(20),
+    -> mode varchar(20),
+    -> PRIMARY KEY(caseno,casetype,ClientID,transID),
+    -> FOREIGN KEY(ClientID) REFERENCES Client(ClientID),
+    -> FOREIGN KEY(caseno,casetype) REFERENCES Cases(caseno,casetype)
+    -> );
+
+ create table Evidence(
+    -> ClientID varchar(20),
+    -> caseno varchar(20),
+    -> casetype varchar(30),
+    -> position varchar(30),
+    -> type varchar(20) NOT NULL,
+    -> remark varchar(255),
+    -> evidenceID varchar(20),
+    -> PRIMARY KEY(caseno,casetype,ClientID,evidenceID),
+    -> FOREIGN KEY(ClientID) REFERENCES Client(ClientID),
+    -> FOREIGN KEY(caseno,casetype) REFERENCES Cases(caseno,casetype)
+    -> );

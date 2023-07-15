@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      .main-block {
+        background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('static/background.jpg');
+        background-color: #f1f3ee;
+        
+        background-repeat: no-repeat;
+        background-size:cover;
+			  height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      form{
+        opacity:none;
+        border:2px;
+        border-color: #f1f3ee;
+      }
+
+      .one{
+        opacity:none;
+      }
+
+      .two{
+        opacity:none;
+      }
+      
+      button {
+        width: 90%;
+        height: 300px;
+        border: 2px;
+        border-color: #f1f3ee;
+        opacity:1;
+        background-color: rgb(5, 0, 0);
+        color: rgb(250, 248, 248);
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        float:left;
+        
+        margin-top:70px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+
+      
+      button:hover {
+        cursor: pointer;
+        opacity: 0.6;
+      }
+      
+      .header {
+		overflow: hidden;
+		background-color: #01080b;
+		padding: 20px 10px;
+	  }
+	  
+	  .header a.mh {
+		text-align: center;
+		font-family: 'Times New Roman', Times, serif;
+		font-weight: bold;
+		align-items: center;
+	  }
+	  
+	  .header a {
+		float: left;
+		color: rgb(246, 242, 242);
+    font-family: 'Times New Roman', Times, serif;
+		font-weight: bold;
+		text-align: center;
+		padding: 12px;
+		text-decoration: none;
+		font-size: 25px;
+		line-height: 25px;
+		border-radius: 4px;
+		
+	  }
+	  
+	  
+	  
+	  .header a:hover {
+		background-color: #ddd;
+		color: rgb(4, 0, 0);
+	  }
+    
+    .container{
+      width:50%;
+      align-items: center;
+      margin: none;
+      padding: none;
+    }
+	  
+	  .header-right {
+		margin-left: 1250px;
+    margin-top: 35px;
+	  }
+      form {
+        display: inline-block;
+        align-items: center;
+        width: 40%;
+        padding: 0;
+        margin-left:90px;
+        box-sizing: border-box;
+      }
+
+      i{
+        margin-right: 5px;
+      }
+
+      button i {
+  font-size: 70px;
+  margin-top: 10px;
+  width:30%;
+  
+}
+
+
+.legify{
+  font-family: 'Times New Roman', Times, serif;
+	font-weight: bold; 
+  
+  color:rgb(232, 194, 2);
+  
+  
+}
+
+.month{
+  width:1250px;
+  height: 50px;
+  border: 2px;
+  border-color: #f1f3ee;
+  opacity:1;
+
+}
+
+.header a.logo {
+		font-size: 40px;
+		font-weight: bold;
+    margin-top: 30px;
+	  }
+
+    
+  
+    </style>
+  </head>
+  <body>
+    <div class="header">
+			<a href="/first"><img src="{{ url_for('static', filename='logo.png') }}" width="100" height="90"></a>
+      <a href="/first" class="logo"><span class="legify">LEGIFY</span></a>
+			<div class="header-right">
+			  <a class="nb" href="/noticeboard"><i class="fa fa-bell"></i>NOTICE BOARD</a>
+			</div>
+		  </div>
+    <div class="main-block">
+      
+        <form action="/home"><button class="one" type="Submit" ><i class="fa fa-user"></i><span>Client</span></button></form>
+       
+        
+        <form action="/case"><button class="two" type="Submit"><i class="fa fa-suitcase"></i><span>Case</span></button></form>
+        
+        
+        <form action="/casestatus"><button class="two" type="Submit"><i class="fa fa-chart-line"></i><span>Case Status</span></button></form>
+
+        <form action="/get_search_pagecc"><button class="two" type="Submit"><i class="fa fa-balance-scale"></i><span>Client-case</span></button></form>
+        
+        <form action="/evidence"><button class="one" type="Submit"><i class="fa fa-search"></i><span>Evidence</span></button></form>
+        
+        <form action="/add_hours"><button class="one" type="Submit"><i class="fa fa-money-bill"></i><span>Bill</span></button></form>
+      
+        <form action="/payment"><button class="two" type="Submit"><i class="fa fa-credit-card"></i><span>Payment</span></button></form>
+        
+        <form action="/notes"><button class="two" type="Submit"><i class="fa fa-sticky-note"></i><span>Notes</span></button></form>
+        
+        <form action="/download_month_pdf"><button class="month" type="Submit"><span>Generate Monthly Summary</span></button></form>
+    </div>
+    
+  </body>
+</html>

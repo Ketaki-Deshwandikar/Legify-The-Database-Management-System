@@ -1,0 +1,51 @@
+<style>
+   
+    .table-container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 5px #020000;
+ }
+ 
+ .table {
+    background-color: #fff;
+    border: 5px;
+    border-color: black;
+    width: 100%;
+ }
+ 
+ .table td, .table th{
+    border:5px black;
+    padding:5px;
+    vertical-align: top;
+    text-align: left;
+ }
+ 
+ </style>
+ 
+ 
+ <div class="table-container">
+    <h3>{{numrows}} Records Found</h3>
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>Note ID</th>
+                <th>Created on</th>
+                <th>Remark</th>
+                <th>Urgence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in employee %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
+ 

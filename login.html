@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<html>
+	<head>
+		<title>Login Page</title>
+		<style>
+			html, body {
+			  min-height: 100%;
+			  padding: 0;
+			  margin: 0;
+			  font-family: Roboto, Arial, sans-serif;
+			  font-size: 14px;
+			  color: #666;
+			}
+			.form1{
+			  width:50%;
+			}
+			h1 {
+			  margin: 0 0 20px;
+			  font-weight: 400;
+			  color: #000508;
+			}
+			p {
+			  margin: 0 0 5px;
+			}
+			.main-block {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			}
+			
+			.form1 {
+			  padding: 25px;
+			  margin: 25px;
+			  box-shadow: 0 2px 5px #f5f5f5; 
+			  background: #f5f5f5; 
+			}
+			.container-fluid {
+				background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('static/background.jpg');
+        background-color: #f1f3ee;
+        
+        background-repeat: no-repeat;
+        background-size:cover;
+			  height: fit-content;
+			}
+			.search-table {
+			  padding: 10%;
+			  margin-top: -6%;
+			}
+			.search-box {
+			  background: #f5f5f5;
+			  padding: 3%;
+			}
+			.search-box input:focus {
+			  box-shadow:none;
+			  border:2px solid #eeeeee;
+			}
+			.search-list {
+			  background: #fff;
+			  border: 1px solid #dcdcdc;
+			  border-top: none;
+			}
+			.search-list h3 {
+			  background: #eee;
+			  padding: 3%;
+			  color: #000509;
+			  margin-bottom: 0%;
+			}
+			html, body {
+			  min-height: 100%;
+			  padding: 0;
+			  margin: 0;
+			  font-family: Roboto, Arial, sans-serif;
+			  font-size: 14px;
+			  color: #161616;
+			}
+			button {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			background: #00060a; 
+			font-size: 16px;
+			font-weight: 400;
+			color: #fff;
+			}
+			button:hover {
+			background: #6aa2db;
+			}   
+			input, textarea {
+			width: calc(100% - 18px);
+			padding: 8px;
+			margin-bottom: 20px;
+			border: 1px solid #010c13;
+			outline: none;
+			} 
+			select, textarea {
+			width: calc(100% - 18px);
+			padding: 8px;
+			margin-bottom: 20px;
+			border: 1px solid #000203;
+			outline: none;
+			}
+	  select::placeholder {
+			color: #666;
+			}
+			input::placeholder {
+			color: #666;
+			}
+			
+	  
+	  .header {
+		overflow: hidden;
+		background-color: #01080b;
+		padding: 20px 10px;
+	  }
+	  
+	  .header a.mh {
+		text-align: center;
+		font-family: 'Times New Roman', Times, serif;
+		font-weight: bold;
+		align-items: center;
+	  }
+	  
+	  .header a {
+		float: left;
+		color: rgb(246, 242, 242);
+		text-align: center;
+		padding: 12px;
+		text-decoration: none;
+		font-size: 18px;
+		line-height: 25px;
+		border-radius: 4px;
+		
+	  }
+	  
+	  .legify{
+  font-family: 'Times New Roman', Times, serif;
+	font-weight: bold; 
+  
+  color:rgb(232, 194, 2);
+  
+  
+}
+
+.header a.logo {
+		font-size: 40px;
+		font-weight: bold;
+    margin-top: 30px;
+	  }
+	  
+	  .header a:hover {
+		background-color: #ddd;
+		color: black;
+	  }
+	  
+	  .header-right {
+		margin-left: 1200px;
+	  }
+
+	  footer{
+		background-color: #000509;
+		
+	  }
+
+	  .f{
+		margin-left: 700px;
+		color:white;
+		font-size: 25px;
+	  }
+	  p{
+		margin-left:600px;
+		color:white;
+	  }
+	  h3{
+		color:white;
+	  }
+
+	  
+	  </style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="/first"><img src="{{ url_for('static', filename='logo.png') }}" width="100" height="90"></a>
+      <a href="/first" class="logo"><span class="legify">LEGIFY</span></a>
+			<div class="header-right">
+			  <form href="#about"><a><button href="#about">About Us</button></a></form>
+			  <form href="#contact"><a><button href="#contact">Contact Us</button></a></form>
+			</div>
+		  </div>
+		  <div class="container-fluid">
+		  <div class="main-block">
+		<form class="form1" action = "/login" method = "POST">
+			
+				<div class="form-group">
+					<label>Username</label>
+					<input name = "username" type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter username">
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input name = "password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				
+		</form>
+	</div>
+</div>
+<footer class="footer">
+	
+	  <div class="row">
+		<div class="col-md-12">
+		  <h3>Contact Us</h3>
+		  <p>123 Main Street<br>
+		  Anywhere, Pune-123456<br>
+		  Phone: 0000000000<br>
+		  Email: info@legify.com</p>
+		</div>
+		<div class="col-md-12">
+		  <h3>About Us</h3>
+		  <p>We are dedicated to helping lawyers maintain information about their clients and cases in a well organized manner. </p>
+		</div>
+	  </div>
+	
+  </footer>
+	</body>
+</html>

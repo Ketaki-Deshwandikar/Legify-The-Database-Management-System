@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>smthg</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  load_data();
+  function load_data(query)
+  {
+   $.ajax({
+    url:"/ajaxlivesearchpayment",
+    method:"POST",
+    data:{query:query},
+    success:function(data)
+    {
+      $('#result').html(data);
+      $("#result").append(data.htmlresponse);
+    }
+   });
+  }
+  $('#search_text').keyup(function(){
+    var search = $(this).val();
+    if(search != ''){
+    load_data(search);
+   }else{
+    load_data();
+   }
+  });
+});
+</script>
+</head>
+<body>
+    
+  <div class="header">
+    <a href="/first"><img src="{{ url_for('static', filename='logo.png') }}" width="100" height="90"></a>
+      <a href="/first" class="logo"><span class="legify">LEGIFY</span></a>
+    <div class="header-right">
+      <form action="/payment"><a><button type="Submit">ADD</button></a></form>
+      <form action="/payment_search"><a><button type="Submit" href="/">Search</button></a></form>
+      
+    </div>
+  </div>
+<div class="container-fluid bg-light py-5">
+    
+    
+  <div class="container search-table">
+    <div class="search-box">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Search All Fields</h5>
+        </div>
+        <div class="col-md-9">
+          <input type="text" name="search_text" id="search_text" class="form-control" placeholder="Search">
+        </div> 
+      </div>
+    </div>
+    <div id="result"></div>
+  </div>
+</div>
+
+<style>
+
+.container-fluid{
+  background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('static/background.jpg');
+        background-color: #f1f3ee;
+        
+        background-repeat: no-repeat;
+        background-size:cover;
+        height: 600px;
+}
+.search-table{
+    padding: 10%;
+    margin-top: -6%;
+}
+.search-box{
+    background: #f5f5f5;
+    
+    padding: 3%;
+}
+.search-box input:focus{
+    box-shadow:none;
+    border:2px solid #eeeeee;
+}
+.search-list{
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-top: none;
+}
+.search-list h3{
+    background: #eee;
+    padding: 3%;
+    color: #007bff;
+    margin-bottom: 0%;
+}
+
+      html, body {
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #161616;
+      }
+      button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #0a0a0a; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: #fafafb;
+      font:black;
+      }    
+      
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #01080b;
+  padding: 20px 10px;
+}
+
+.header a.mh {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  align-items: center;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: rgb(246, 242, 242);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.legify{
+  font-family: 'Times New Roman', Times, serif;
+	font-weight: bold; 
+  
+  color:rgb(232, 194, 2);
+  
+  
+}
+
+.header a.logo {
+		font-size: 40px;
+		font-weight: bold;
+    margin-top: 30px;
+	  }
+
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+
+/* Float the link section to the right */
+.header-right {
+  margin-left: 1200px;
+}
+
+</style>
+</body>
+</html>
